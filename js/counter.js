@@ -4,7 +4,9 @@ class Counter {
     this.step = step;
     this.refs = this.getRefs(rootSelector);
     this.bindEvent();
+    this.updateValueUI();
   }
+
   getRefs(rootSelector) {
     const refs = {};
     refs.container = document.querySelector(rootSelector);
@@ -16,18 +18,22 @@ class Counter {
 
   increment() {
     this.value += this.step;
-    return this.value;
   }
 
   decrement() {
     this.value -= this.step;
-    return this.value;
   }
 
   updateValueUI() {
-    this.refs.value.textContent = this.value;
+    if (this.value < 1) {
+      this.refs.value.textContent = "01";
+    }
+    else if (this.value >= 1 && this.value < 10) {
+      this.refs.value.textContent = "0" + this.value;
+    }
+    else this.refs.value.textContent = this.value;
   }
-
+  
   bindEvent() {
     this.refs.incrementBtn.addEventListener("click", () => {
       this.increment();
