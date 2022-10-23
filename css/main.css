@@ -38,7 +38,7 @@ img {
   --main-font-family: "Inter";
   --main-dark-color:#1A1E27;
   --main-light-color: #ffffff;
-  --second-light-color: #f5f4fa;
+  --second-light-color: #31B545;
   --accent-color: #5AC8FB;
   --main-color: #757575;
   --secondary-dark-color: #212121;
@@ -50,6 +50,10 @@ img {
   --in-bottom-gap: 94px;
   --timing-duration: 250ms;
   --timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.form {
+  position: relative;
 }
 
 .card-set {
@@ -68,6 +72,7 @@ img {
   padding-right: 30px;
   padding-top: 25px;
   padding-bottom: 25px;
+  margin-bottom: 50px;
 }
 .card-set__text {
   max-width: 185px;
@@ -125,7 +130,8 @@ img {
   color: var(--main-light-color);
 }
 
-.decr-button, .incr-button {
+.decr-button,
+.incr-button {
   width: 30px;
   height: 30px;
   font-size: 20px;
@@ -153,4 +159,19 @@ img {
   visibility: hidden;
   pointer-events: none;
   opacity: 0;
+}
+
+.btn-order {
+  width: 375px;
+  height: 61px;
+  text-align: center;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  cursor: pointer;
+  color: var(--main-light-color);
+  font-weight: 400;
+  font-size: 22px;
+  line-height: 1.22;
+  background-color: var(--second-light-color);
 }/*# sourceMappingURL=main.css.map */
