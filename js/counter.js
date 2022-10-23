@@ -1,10 +1,11 @@
 class Counter {
-  constructor(rootSelector, initialValue = 0, step = 1) {
+  constructor(rootSelector, initialValue = 0, step = 1000) {
     this.value = initialValue;
     this.step = step;
     this.refs = this.getRefs(rootSelector);
     this.bindEvent();
     this.updateValueUI();
+    this.eventClickByBtnBuy();
   }
 
   getRefs(rootSelector) {
@@ -13,9 +14,11 @@ class Counter {
     refs.incrementBtn = refs.container.querySelector("[data-increment]");
     refs.decrementBtn = refs.container.querySelector("[data-decrement]");
     refs.value = refs.container.querySelector("[data-value]");
+    refs.btnBuy = refs.container.querySelector('.btn-buy');
+    refs.counterContainer=refs.container.querySelector('.counter-wrapper')
     return refs;
   }
-
+  
   increment() {
     this.value += this.step;
   }
@@ -26,11 +29,11 @@ class Counter {
 
   updateValueUI() {
     if (this.value < 1) {
-      this.refs.value.textContent = "01";
+      this.refs.value.textContent = "1";
     }
-    else if (this.value >= 1 && this.value < 10) {
-      this.refs.value.textContent = "0" + this.value;
-    }
+    // else if (this.value >= 1 && this.value < 10) {
+    //   this.refs.value.textContent = "0" + this.value;
+    // }
     else this.refs.value.textContent = this.value;
   }
   
@@ -45,10 +48,17 @@ class Counter {
       this.updateValueUI();
     });
   }
+
+  eventClickByBtnBuy() {
+    this.refs.btnBuy.addEventListener('click',()=> {
+      this.refs.btnBuy.classList.add('is-hidden');
+      this.refs.counterContainer.classList.remove('is-hidden');
+    })
+  }
 }
 
 const counter1 = new Counter("#counter-1");
-
+console.log(counter1)
 const counter2 = new Counter("#counter-2");
 
 const counter3 = new Counter("#counter-3");

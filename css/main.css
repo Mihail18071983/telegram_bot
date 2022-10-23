@@ -99,15 +99,28 @@ img {
   align-items: baseline;
 }
 
+.counter-wrapper {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 50px;
+}
+
 .button-wrapper {
+  position: relative;
   display: flex;
   align-items: center;
   gap: 8px;
 }
 
 .value {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   font-weight: 700;
-  font-size: 16px;
+  font-size: 12px;
   line-height: 1.19;
   color: var(--main-light-color);
 }
@@ -122,4 +135,22 @@ img {
   border-radius: 5px;
   border: none;
   cursor: pointer;
+}
+
+.btn-buy {
+  position: absolute;
+  padding: 7.5px 30px;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1.2;
+  background-color: var(--accent-color);
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+}
+
+.is-hidden {
+  visibility: hidden;
+  pointer-events: none;
+  opacity: 0;
 }/*# sourceMappingURL=main.css.map */
