@@ -1,5 +1,5 @@
 class Counter {
-  constructor(rootSelector, initialValue = 0, step = 1000) {
+  constructor(rootSelector, initialValue = 0, step = 1) {
     this.value = initialValue;
     this.step = step;
     this.refs = this.getRefs(rootSelector);
@@ -29,12 +29,16 @@ class Counter {
 
   updateValueUI() {
     if (this.value < 1) {
-      this.refs.value.textContent = "1";
+      this.refs.btnBuy.classList.remove('is-hidden');
+      this.refs.value.classList.add('is-hidden');
     }
     // else if (this.value >= 1 && this.value < 10) {
     //   this.refs.value.textContent = "0" + this.value;
     // }
-    else this.refs.value.textContent = this.value;
+    else {
+      this.refs.value.textContent = this.value;
+      this.refs.btnBuy.classList.add('is-hidden')
+    }
   }
   
   bindEvent() {
