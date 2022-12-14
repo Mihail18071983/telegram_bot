@@ -13,7 +13,7 @@ counterArr.forEach(counter=>{
     
         submitBtn.classList.remove('is-hidden')
       }
-      if (counter.refs.btnBuy.classList.remove('is-hidden')) {
+      if (counter.refs.btnBuy.classList.contains('is-hidden')) {
         submitBtn.classList.add('is-hidden')
       }
 })
