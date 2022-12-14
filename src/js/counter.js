@@ -63,14 +63,14 @@ export class Counter {
     });
   }
 
-  // onSubmit() {
-  //   submitBtn.classList.add('is-hidden');
+  onSubmit() {
+    submitBtn.classList.add('is-hidden');
 
-  //   this.refs.cardSet.addEventListener('click', e => {
-  //     if (!e.target.classList.contains('btn-buy')) return;
-  //     submitBtn.classList.remove('is-hidden');
-  //   });
-  // }
+    this.refs.cardSet.addEventListener('click', e => {
+      if (!e.target.classList.contains('btn-buy')) return;
+      submitBtn.classList.remove('is-hidden');
+    });
+  }
 
   get _value() {
     return this.value;
