@@ -9,7 +9,7 @@ export class Counter {
     this.bindEvent();
     this.updateValueUI();
     this.eventClickByBtnBuy();
-    // this.onSubmit();
+    this.onSubmit();
   }
 
   getRefs(rootSelector) {
@@ -20,7 +20,6 @@ export class Counter {
     refs.value = refs.container.querySelector('[data-value]');
     refs.btnBuy = refs.container.querySelector('.btn-buy');
     refs.counterContainer = refs.container.querySelector('.counter-wrapper');
-    // refs.cardSet = document.querySelector('.card-set');
     return refs;
   }
 
@@ -63,14 +62,13 @@ export class Counter {
     });
   }
 
-  // onSubmit() {
-  //   submitBtn.classList.add('is-hidden');
-
-  //   this.refs.cardSet.addEventListener('click', e => {
-  //     if (!e.target.classList.contains('btn-buy')) return;
-  //     submitBtn.classList.remove('is-hidden');
-  //   });
-  // }
+  onSubmit() {
+    submitBtn.classList.add('is-hidden');
+    cardSet.addEventListener('click', e => {
+      if (!e.target.classList.contains('btn-buy')) return;
+      submitBtn.classList.remove('is-hidden');
+    });
+  }
 
   get _value() {
     return this.value;
@@ -86,3 +84,11 @@ export const counter1 = new Counter('#counter-1');
 export const counter2 = new Counter('#counter-2');
 
 export const counter3 = new Counter('#counter-3');
+
+if (
+  counter1.refs.btnBuy.classList.remove('is-hidden') &&
+  counter2.refs.btnBuy.classList.remove('is-hidden') &&
+  counter3.refs.btnBuy.classList.remove('is-hidden')
+) {
+  submitBtn.classList.add('is-hidden');
+}
