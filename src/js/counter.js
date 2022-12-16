@@ -64,7 +64,21 @@ export class Counter {
 
   onSubmit() {
     submitBtn.classList.add('is-hidden');
+
     cardSet.addEventListener('click', e => {
+      if (
+        counter1.refs.btnBuy.classList.contains('is-hidden') &&
+        counter2.refs.btnBuy.classList.contains('is-hidden') &&
+        counter3.refs.btnBuy.classList.contains('is-hidden')
+      ) {
+        submitBtn.classList.remove('is-hidden');
+      } else if (
+        !counter1.refs.btnBuy.classList.contains('is-hidden') &&
+        !counter2.refs.btnBuy.classList.contains('is-hidden') &&
+        !counter3.refs.btnBuy.classList.contains('is-hidden')
+      ) {
+        submitBtn.classList.add('is-hidden');
+      }
       if (!e.target.classList.contains('btn-buy')) return;
       submitBtn.classList.remove('is-hidden');
     });
@@ -84,11 +98,3 @@ export const counter1 = new Counter('#counter-1');
 export const counter2 = new Counter('#counter-2');
 
 export const counter3 = new Counter('#counter-3');
-
-if (
-  counter1.refs.btnBuy.classList.remove('is-hidden') &&
-  counter2.refs.btnBuy.classList.remove('is-hidden') &&
-  counter3.refs.btnBuy.classList.remove('is-hidden')
-) {
-  submitBtn.classList.add('is-hidden');
-}
